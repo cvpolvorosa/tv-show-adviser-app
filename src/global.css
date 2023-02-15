@@ -1,4 +1,13 @@
-body{
-    color:whitesmoke;
+body {
+    color: whitesmoke;
     font-family: Maximum Impact;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(204, 203, 203, 0.6);
+    border-radius: 10px;
 }

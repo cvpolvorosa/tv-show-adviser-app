@@ -11,6 +11,7 @@
 .list{
     display: flex;
     overflow-x: hidden;
+    padding-bottom: 30px;
 }
 
 .tv_show_item{

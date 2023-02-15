@@ -6,6 +6,7 @@ import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/movies-logo-colored.png"
 import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
+import { TVShowList } from "./components/TVShowList/TVShowList";
 
 TVShowAPI.fetchPopulars();
 export function App() {
@@ -22,7 +23,7 @@ export function App() {
     async function fetchRecommendations(tvShowId) {
         const recommendationListResp = await TVShowAPI.fetchRecommendations(tvShowId);
         if (recommendationListResp.length > 0) {
-            setRecommendationList(recommendationListResp.slice(0,10));
+            setRecommendationList(recommendationListResp.slice(0, 10));
         }
     }
 
@@ -31,7 +32,7 @@ export function App() {
     }, []);
 
     useEffect(() => {
-        if(currentTVShow){
+        if (currentTVShow) {
             fetchRecommendations(currentTVShow.id);
         }
     }, [currentTVShow]);
@@ -59,14 +60,7 @@ export function App() {
                 {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
             </div>
             <div className={s.recommended_tv_shows}>
-                {currentTVShow && (
-                <TVShowListItem 
-                tvShow={currentTVShow} 
-                onClick_={(tvShow) => {
-                    console.log("I've been clicked", currentTVShow)
-                }}
-                />
-                )}
+                {currentTVShow && <TVShowList tvShowList={recommendationList} />}
             </div>
         </div>
     )

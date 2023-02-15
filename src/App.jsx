@@ -3,6 +3,8 @@ import { TVShowAPI } from "./api/tv-show"
 import s from "./style.module.css"
 import { BACKDROP_BASE_URL } from "./config";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
+import { Logo } from "./components/Logo/Logo";
+import logoImg from "./assets/images/movies-logo-colored.png"
 
 TVShowAPI.fetchPopulars();
 export function App() {
@@ -31,8 +33,7 @@ export function App() {
             <div className={s.header}>
                 <div className="row">
                     <div className="col-4">
-                        <div>LOGO</div>
-                        <div>Subtitle</div>
+                        <Logo img={logoImg} title={"JaCoCo Prime"} subtitle={"Find a show you may like"}/>
                     </div>
                     <div className="col-md-12 col-lg-4" >
                         <input style={{ width: "100%" }} type="text" />

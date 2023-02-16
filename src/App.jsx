@@ -7,6 +7,7 @@ import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/movies-logo-colored.png"
 import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { TVShowList } from "./components/TVShowList/TVShowList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 TVShowAPI.fetchPopulars();
 export function App() {
@@ -38,10 +39,10 @@ export function App() {
     }, [currentTVShow]);
 
 
-    function updateCurrentTVShow(tvShow){
+    function updateCurrentTVShow(tvShow) {
         setCurrentTVShow(tvShow);
-    } 
- 
+    }
+
     return (
         <div className={s.main_container}
             style={{
@@ -56,7 +57,7 @@ export function App() {
                         <Logo img={logoImg} title={"JaCoCo Prime"} subtitle={"Find a show you may like"} />
                     </div>
                     <div className="col-md-12 col-lg-4" >
-                        <input style={{ width: "100%" }} type="text" />
+                        <SearchBar />
                     </div>
                 </div>
             </div>

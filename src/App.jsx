@@ -28,6 +28,13 @@ export function App() {
         }
     }
 
+    async function fetchByTitle(title) {
+        const searchResp = await TVShowAPI.fetchByTitle(title);
+        if (searchResp.length > 0) {
+            setCurrentTVShow(searchResp[0]);
+        }
+    }
+
     useEffect(() => {
         fetchPopulars();
     }, []);
@@ -57,7 +64,7 @@ export function App() {
                         <Logo img={logoImg} title={"JaCoCo Prime"} subtitle={"Find a show you may like"} />
                     </div>
                     <div className="col-md-12 col-lg-4" >
-                        <SearchBar />
+                        <SearchBar onSubmit={fetchByTitle}/>
                     </div>
                 </div>
             </div>
